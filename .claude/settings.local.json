@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem \"D:\\\\Desktop\\\\murali\" -Recurse)",
+      "Bash(Select-Object FullName, Extension)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(dir \"D:\\\\Desktop\\\\murali\" /b)",
+      "Bash(findstr /i \"\\\\.jpg\\\\|\\\\.jpeg\\\\|\\\\.png\\\\|\\\\.webp\\\\|\\\\.gif\\\\|\\\\.svg\")",
+      "PowerShell(Get-ChildItem \"D:\\\\Desktop\\\\murali\" | Where-Object { $_.Extension -match '\\\\.\\(jpg|jpeg|png|webp|gif|svg|mp4\\)' } | Select-Object Name, Length)",
+      "Read(//mnt/d/Desktop/**)"
+    ]
+  }
+}

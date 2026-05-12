@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greenway Enterprises – Uniforms &amp; Packaging Solutions</title>
+<!-- system fonts only — zero network requests, no flicker -->
+<style>
+:root {
+  --navy:    #0d1b2a;
+  --navy2:   #152236;
+  --navy3:   #1a2d42;
+  --orange:  #f5a623;
+  --orange2: #d4891a;
+  --white:   #ffffff;
+  --offwhite:#f5f6fa;
+  --text:    #1a1a2e;
+  --mid:     #4a5568;
+  --muted:   #718096;
+  --border:  rgba(0,0,0,0.09);
+  --sh:      0 4px 20px rgba(0,0,0,0.1);
+  --shmd:    0 8px 36px rgba(0,0,0,0.14);
+  --r:       6px;
+  --tr:      0.28s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--offwhite);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Arial Black','Arial Bold',Arial,sans-serif;letter-spacing:0.02em}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:var(--navy2);border-radius:99px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:62px;
+  background:#ffffff;
+  border-bottom:1.5px solid #e8ecf4;
+  box-shadow:0 2px 12px rgba(0,0,0,0.08);
+}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
+.nav-logo img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:0;list-style:none;align-items:center}
+.nav-links a{
+  font-family:'Segoe UI',Arial,sans-serif;font-size:0.74rem;font-weight:700;
+  color:var(--navy);letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.5rem 0.95rem;display:block;
+  transition:color var(--tr);position:relative;
+}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0.95rem;right:0.95rem;
+  height:2px;background:var(--orange);
+  transform:scaleX(0);transition:transform var(--tr);transform-origin:left;
+}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-quote{
+  background:var(--orange);color:var(--white)!important;
+  padding:0.48rem 1.2rem!important;border-radius:var(--r);
+  font-weight:700!important;letter-spacing:0.08em!important;
+  transition:background var(--tr),transform var(--tr)!important;
+}
+.nav-quote::after{display:none!important}
+.nav-quote:hover{background:var(--orange2)!important;transform:translateY(-1px)}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:var(--tr);display:block}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ── HERO ── */
+#hero{
+  height:calc(100vh - 62px);  /* exactly the space below the navbar */
+  min-height:500px;
+  margin-top:62px;             /* starts right below navbar — image visible from top */
+  background:var(--navy);
+  position:relative;overflow:hidden;
+  display:flex;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  /* top: show image from very top so it's visible behind/below navbar */
+  background:url('./background.png') center top/cover no-repeat;
+}
+/* lighter left overlay — image stays clearly visible */
+.hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,
+    rgba(8,18,52,0.72) 0%,rgba(8,18,52,0.52) 32%,
+    rgba(8,18,52,0.20) 58%,rgba(8,18,52,0.04) 78%,transparent 100%);
+}
+/* subtle bottom shadow so text reads cleanly */
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,
+    rgba(8,18,52,0.62) 0%,rgba(8,18,52,0.18) 30%,transparent 55%);
+}
+/* inner wrapper — pins content to the bottom of the hero */
+.hero-body{
+  position:relative;z-index:2;
+  width:100%;height:100%;
+  display:flex;align-items:flex-end;
+  padding:0 0 0px 0%;  /* no top pad needed — section already below navbar */
+}
+.hero-row{
+  width:auto;
+  display:flex;align-items:flex-end;
+  margin:0;padding:0;
+}
+.hero-left{
+  width:clamp(300px,44vw,600px);
+  display:flex;flex-direction:column;gap:14px;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--orange);color:var(--white);
+  font-family:'Segoe UI',Arial,sans-serif;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:0.32rem 1rem;border-radius:2px;
+  width:fit-content;
+}
+.hero-left h1{
+  font-family:'Arial Black','Arial Bold',Arial,sans-serif;
+  font-size:clamp(28px,3.2vw,48px);font-weight:900;
+  color:var(--white);line-height:1.08;text-transform:uppercase;
+  letter-spacing:-0.2px;
+}
+.hero-left h1 span{color:var(--orange);display:block}
+.hero-cats{
+  display:flex;flex-wrap:wrap;gap:0;
+  font-size:0.86rem;color:rgba(255,255,255,0.80);line-height:1.75;
+}
+.hero-cats span{padding:0 0.38rem}
+.hero-cats span:first-child{padding-left:0}
+.hero-cats span:not(:last-child)::after{content:' •';color:rgba(255,255,255,0.38);margin-left:0.38rem}
+.hero-btns{display:flex;gap:0.65rem;flex-wrap:wrap;margin-top:4px}
+.btn-orange{
+  background:var(--orange);color:var(--white);
+  font-family:'Segoe UI',Arial,sans-serif;font-size:0.76rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.62rem 1.4rem;border-radius:var(--r);
+  display:inline-flex;align-items:center;gap:0.4rem;
+  transition:background var(--tr),transform var(--tr),box-shadow var(--tr);
+  box-shadow:0 3px 14px rgba(245,166,35,0.35);
+  text-decoration:none;
+}
+.btn-orange:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 6px 22px rgba(245,166,35,0.45)}
+.btn-outline-white{
+  background:rgba(5,12,38,0.65);color:var(--white);
+  font-family:'Segoe UI',Arial,sans-serif;font-size:0.76rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.57rem 1.3rem;border-radius:var(--r);
+  border:1.5px solid rgba(255,255,255,0.42);
+  display:inline-flex;align-items:center;gap:0.4rem;
+  transition:all var(--tr);text-decoration:none;
+}
+.btn-outline-white:hover{border-color:var(--white);background:rgba(5,12,38,0.88);transform:translateY(-2px)}
+.btn-outline-white svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
+.hero-trust{
+  display:flex;align-items:center;gap:0.6rem;
+  padding:0.52rem 0.9rem;background:rgba(255,255,255,0.06);
+  border-left:3px solid var(--orange);border-radius:0 var(--r) var(--r) 0;
+  width:fit-content;
+}
+.hero-trust svg{width:13px;height:13px;stroke:var(--orange);fill:none;stroke-width:2}
+.hero-trust span{font-size:0.74rem;color:rgba(255,255,255,0.78);letter-spacing:0.06em}
+.hero-trust strong{color:var(--orange);font-weight:600}
+
+/* hero-right removed — video card deleted from hero */
+.hero-right{display:none}
+.measure-card{
+  display:flex;
+  border:1.5px solid rgba(245,166,35,0.70);
+  border-radius:var(--r);
+  overflow:hidden;
+  width:400px;max-width:100%;
+  box-shadow:0 8px 30px rgba(0,0,0,0.55);
+  min-height:130px;
+  text-decoration:none;
+  cursor:pointer;
+  transition:transform var(--tr),box-shadow var(--tr);
+}
+.measure-card:hover{transform:translateY(-4px);box-shadow:0 14px 44px rgba(0,0,0,0.65)}
+.measure-card-text{
+  flex:1;
+  background:rgba(8,18,54,0.93);
+  padding:1.1rem 0.9rem 1.1rem 1.2rem;
+  display:flex;flex-direction:column;justify-content:center;gap:0.25rem;
+}
+.measure-card-text .label{
+  font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:0.15rem;
+}
+.measure-card-text h3{
+  font-family:'Arial Black','Arial Bold',Arial,sans-serif;
+  font-size:clamp(12px,1.15vw,15px);font-weight:900;text-transform:uppercase;
+  color:var(--white);line-height:1.22;letter-spacing:0.2px;
+}
+.measure-card-text h3 span{color:var(--orange)}
+.measure-card-text a{
+  margin-top:0.6rem;display:inline-flex;align-items:center;gap:0.4rem;
+  color:var(--orange);font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  transition:gap var(--tr);
+}
+.measure-card-text a svg{width:12px;height:12px;stroke:var(--orange);fill:none;stroke-width:2.5;transition:transform var(--tr)}
+.measure-card-text a:hover{gap:0.65rem}
+.measure-card-text a:hover svg{transform:translateX(3px)}
+.measure-card-img{
+  flex:0 0 44%;
+  position:relative;overflow:hidden;
+}
+.measure-card-img img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.3s;
+}
+.measure-card:hover .measure-card-img img{transform:scale(1.05)}
+
+/* ── SECTIONS COMMON ── */
+section{padding:5rem 8%}
+.sec-inner{max-width:1200px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:3rem}
+.sec-head h2{
+  font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;
+  text-transform:uppercase;color:var(--navy);
+  letter-spacing:0.05em;
+}
+.sec-head h2.white{color:var(--white)}
+.sec-head .uo{
+  width:48px;height:3px;background:var(--orange);
+  border-radius:2px;margin:0.7rem auto 1rem;
+}
+.sec-head p{font-size:0.95rem;color:var(--muted);max-width:580px;margin:0 auto}
+.sec-head p.white{color:rgba(255,255,255,0.6)}
+
+
+/* ── WHAT WE OFFER ── */
+#what-we-offer{background:var(--white)}
+
+/* filter bar */
+.wwo-filters{
+  display:flex;flex-wrap:wrap;gap:0.5rem;
+  justify-content:center;margin-bottom:2rem;
+}
+.wwo-filter{
+  display:inline-flex;align-items:center;gap:0.45rem;
+  padding:0.5rem 1.1rem;border-radius:3px;
+  border:1.5px solid var(--border);
+  background:transparent;color:var(--mid);
+  font-family:'Segoe UI',Arial,sans-serif;font-size:0.76rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;
+  cursor:pointer;transition:all var(--tr);white-space:nowrap;
+}
+.wwo-filter svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.wwo-filter:hover{border-color:var(--orange);color:var(--orange)}
+.wwo-filter.active{background:var(--orange);border-color:var(--orange);color:var(--white)}
+.wwo-filter.active svg{stroke:var(--white)}
+
+/* panel area */
+.wwo-panel{
+  border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;box-shadow:var(--sh);
+}
+.wwo-pane{display:none;flex-direction:column}
+.wwo-pane.active{display:flex;animation:wwofade 0.28s ease both}
+@keyframes wwofade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* service banner */
+.wwo-banner{
+  background:var(--navy);padding:1.6rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  flex-wrap:wrap;
+}
+.wwo-banner-text h3{
+  font-size:1.1rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.05em;color:var(--white);margin-bottom:0.4rem;
+}
+.wwo-banner-text h3 span{color:var(--orange)}
+.wwo-banner-text p{font-size:0.83rem;color:rgba(255,255,255,0.62);line-height:1.6;max-width:520px}
+.wwo-banner a.btn-orange{white-space:nowrap;font-size:0.73rem;flex-shrink:0}
+
+/* product grid */
+.wwo-products{
+  padding:1.6rem 1.8rem;background:var(--offwhite);
+  display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;
+}
+.wwo-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr);
+  cursor:pointer;
+}
+.wwo-card:hover{transform:translateY(-4px);box-shadow:var(--shmd);border-color:var(--orange)}
+.wwo-card-img{
+  height:110px;background:#e8edf5;
+  display:flex;align-items:center;justify-content:center;
+}
+.wwo-card-img svg{width:32px;height:32px;stroke:rgba(13,27,42,0.18);fill:none;stroke-width:1.2}
+.wwo-card-body{padding:0.6rem 0.7rem 0.7rem}
+.wwo-card-name{font-size:0.74rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;line-height:1.3}
+.wwo-card-tag{
+  display:inline-block;font-size:0.6rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--orange);background:rgba(245,166,35,0.1);
+  padding:0.15rem 0.45rem;border-radius:3px;
+}
+
+.wwo-bottom{text-align:center;padding:2rem 0 0.5rem}
+
+/* ── HOW IT WORKS + MEASURE ── */
+#how{background:var(--offwhite)}
+.how-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;
+}
+.how-works h2,.how-measure h2{
+  font-size:1.35rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.06em;color:var(--navy);margin-bottom:0.5rem;
+}
+.how-underline{width:40px;height:3px;background:var(--orange);border-radius:2px;margin-bottom:1.8rem}
+.steps-flow{display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;overflow-x:auto}
+.step-item{flex:1;min-width:0;text-align:center;position:relative}
+.step-item:not(:last-child)::after{
+  content:'→';
+  position:absolute;right:-0.6rem;top:1.5rem;
+  font-size:1.1rem;color:var(--orange);font-weight:700;z-index:1;
+}
+.step-circle{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--white);border:2px solid var(--navy2);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 0.8rem;
+  transition:border-color var(--tr),background var(--tr);
+}
+.step-item:hover .step-circle{border-color:var(--orange);background:rgba(245,166,35,0.08)}
+.step-circle svg{width:24px;height:24px;stroke:var(--navy);fill:none;stroke-width:1.8;transition:stroke var(--tr)}
+.step-item:hover .step-circle svg{stroke:var(--orange)}
+.step-title{font-size:0.78rem;font-weight:600;color:var(--navy);letter-spacing:0.04em;margin-bottom:0.25rem}
+.step-desc{font-size:0.7rem;color:var(--muted);line-height:1.5;padding:0 0.3rem}
+
+.measure-video-wrap{
+  position:relative;border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--shmd);background:#000;margin-bottom:1.2rem;
+  display:flex;flex-direction:column;align-items:center;
+}
+.measure-video-wrap video{display:block;max-height:320px;width:auto;max-width:100%}
+/* custom player controls */
+.vid-controls{
+  width:100%;background:rgba(0,0,0,0.75);
+  display:flex;flex-direction:column;gap:0;
+  padding:6px 10px 8px;box-sizing:border-box;
+}
+.vid-progress-wrap{
+  width:100%;height:4px;background:rgba(255,255,255,0.25);
+  border-radius:99px;cursor:pointer;margin-bottom:8px;position:relative;
+}
+.vid-progress-bar{
+  height:100%;background:var(--orange);border-radius:99px;
+  width:0%;pointer-events:none;transition:width 0.1s linear;
+}
+.vid-progress-wrap:hover{height:6px}
+.vid-btns{display:flex;align-items:center;gap:10px}
+.vid-btn{
+  background:none;border:none;cursor:pointer;padding:0;
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  opacity:0.85;transition:opacity 0.2s;
+}
+.vid-btn:hover{opacity:1}
+.vid-btn svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.vid-time{font-size:0.7rem;color:rgba(255,255,255,0.7);font-family:'Jost',sans-serif;margin-left:2px}
+.vid-spacer{flex:1}
+/* fullscreen fit */
+.measure-video-wrap:fullscreen,
+.measure-video-wrap:-webkit-full-screen{
+  background:#000;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;border-radius:0;
+}
+.measure-video-wrap:fullscreen video,
+.measure-video-wrap:-webkit-full-screen video{
+  max-height:calc(100vh - 52px);width:auto;max-width:100vw;
+}
+.measure-video-wrap:fullscreen .vid-controls,
+.measure-video-wrap:-webkit-full-screen .vid-controls{
+  position:absolute;bottom:0;left:0;right:0;
+}
+/* ── VIDEO GENDER TABS ── */
+.vid-tabs{
+  display:flex;gap:0;margin-bottom:0.8rem;
+  border:1.5px solid var(--border);border-radius:var(--r);
+  overflow:hidden;background:var(--offwhite);
+}
+.vid-tab{
+  flex:1;padding:0.55rem 1rem;
+  font-family:'Segoe UI',Arial,sans-serif;font-size:0.76rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  border:none;background:transparent;color:var(--muted);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.45rem;
+  transition:background var(--tr),color var(--tr);
+}
+.vid-tab svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
+.vid-tab.active{background:var(--navy);color:var(--white)}
+.vid-tab:not(.active):hover{background:var(--border);color:var(--navy)}
+.vid-tab:first-child{border-right:1.5px solid var(--border)}
+
+.measure-guide{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.2rem 1.4rem;
+}
+.measure-guide h4{
+  font-family:'Oswald',sans-serif;font-size:0.82rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.1em;color:var(--navy);
+  margin-bottom:0.8rem;
+}
+.measure-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
+.measure-list li{
+  display:flex;align-items:center;gap:0.7rem;
+  font-size:0.82rem;color:var(--mid);
+}
+.measure-list li .num{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--orange);color:var(--white);
+  font-family:'Oswald',sans-serif;font-size:0.7rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+
+/* ── CLIENTS ── */
+#clients{background:var(--white)}
+.clients-slider{
+  margin-top:2rem;overflow:hidden;border-radius:10px;
+  border:1px solid var(--border);background:var(--offwhite);
+  padding:1.2rem 0;position:relative;
+}
+.clients-slider::before,.clients-slider::after{
+  content:'';position:absolute;top:0;bottom:0;width:50px;z-index:3;pointer-events:none;
+}
+.clients-slider::before{left:0;background:linear-gradient(90deg,var(--offwhite),transparent)}
+.clients-slider::after{right:0;background:linear-gradient(270deg,var(--offwhite),transparent)}
+.clients-track{
+  display:flex;width:max-content;gap:1rem;
+  animation:slide 26s linear infinite;padding:0 1rem;
+}
+.clients-slider:hover .clients-track{animation-play-state:paused}
+.client-tile{
+  width:170px;height:88px;flex-shrink:0;
+  background:var(--white);border:1px solid var(--border);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;padding:0.8rem;
+  transition:box-shadow var(--tr),transform var(--tr);
+}
+.client-tile:hover{box-shadow:var(--sh);transform:translateY(-4px)}
+.client-tile img{width:100%;height:100%;object-fit:contain;filter:grayscale(20%);opacity:0.8;transition:filter var(--tr),opacity var(--tr)}
+.client-tile:hover img{filter:grayscale(0%);opacity:1}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── CTA BANNER ── */
+#cta{background:var(--navy);padding:4rem 8%}
+.cta-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;
+}
+.cta-text h2{
+  font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;text-transform:uppercase;
+  color:var(--white);line-height:1.15;margin-bottom:0.8rem;
+}
+.cta-text p{font-size:0.88rem;color:rgba(255,255,255,0.55);margin-bottom:1.4rem}
+.cta-badges{display:flex;flex-wrap:wrap;gap:0.7rem}
+.cta-badge{
+  display:flex;align-items:center;gap:0.4rem;
+  font-size:0.73rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em;
+}
+.cta-badge svg{width:14px;height:14px;stroke:var(--orange);fill:none;stroke-width:2}
+.cta-actions{display:flex;flex-direction:column;gap:0.7rem;align-items:center}
+.btn-wa{
+  background:transparent;color:var(--white);
+  font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.75rem 1.5rem;border-radius:var(--r);
+  border:2px solid rgba(255,255,255,0.35);
+  display:inline-flex;align-items:center;gap:0.5rem;width:100%;justify-content:center;
+  transition:all var(--tr);
+}
+.btn-wa:hover{border-color:var(--white);background:rgba(255,255,255,0.07)}
+.btn-wa svg{width:16px;height:16px;fill:var(--white)}
+.btn-download{
+  background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.7);
+  font-family:'Oswald',sans-serif;font-size:0.74rem;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.6rem 1.2rem;border-radius:var(--r);
+  border:1px solid rgba(255,255,255,0.15);
+  display:inline-flex;align-items:center;gap:0.5rem;width:100%;justify-content:center;
+  transition:all var(--tr);
+}
+.btn-download:hover{border-color:rgba(255,255,255,0.3);color:var(--white)}
+.btn-download svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ── GST ── */
+#gst{background:var(--offwhite)}
+.gst-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2rem}
+.gst-panel{
+  background:var(--navy);border-radius:10px;padding:2rem;
+  display:flex;flex-direction:column;gap:1rem;
+}
+.gst-num-box{
+  background:linear-gradient(135deg,var(--navy2),var(--navy3));
+  border:1px solid rgba(245,166,35,0.3);border-radius:8px;
+  padding:1.5rem 1.8rem;
+}
+.gst-num-box small{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:0.4rem}
+.gst-num-box .gnum{font-family:'Oswald',monospace;font-size:1.6rem;font-weight:600;color:var(--white);letter-spacing:0.12em}
+.gst-verified{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);
+  padding:0.6rem 1rem;border-radius:6px;font-size:0.78rem;color:var(--orange);
+}
+.gst-verified svg{width:14px;height:14px;stroke:var(--orange);fill:none;stroke-width:2}
+.gst-content p{font-size:0.9rem;color:var(--mid);line-height:1.8}
+.gst-points{list-style:none;margin-top:1.2rem;display:flex;flex-direction:column;gap:0.5rem}
+.gst-points li{display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:var(--mid)}
+.gst-points li::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0}
+
+/* ── CONTACT ── */
+#contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
+.contact-info{display:flex;flex-direction:column;gap:0.9rem}
+.c-card{
+  display:flex;align-items:flex-start;gap:1rem;
+  border:1px solid var(--border);border-radius:8px;
+  padding:1.2rem 1.4rem;background:var(--offwhite);
+  transition:box-shadow var(--tr),transform var(--tr);
+}
+.c-card:hover{box-shadow:var(--sh);transform:translateY(-3px)}
+.c-icon{
+  width:42px;height:42px;background:var(--navy);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.c-icon svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:1.8}
+.c-body label{display:block;font-size:0.66rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.25rem}
+.c-body span{font-size:0.9rem;color:var(--text);line-height:1.5}
+.contact-form{
+  background:var(--offwhite);border:1px solid var(--border);border-radius:10px;
+  padding:2rem;display:flex;flex-direction:column;gap:1rem;
+}
+.contact-form h3{
+  font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.06em;color:var(--navy);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.ff{display:flex;flex-direction:column;gap:0.3rem}
+.ff label{font-size:0.7rem;font-weight:600;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.ff input,.ff textarea,.ff select{
+  border:1.5px solid var(--border);border-radius:6px;
+  padding:0.7rem 0.9rem;font-family:'Jost',sans-serif;
+  font-size:0.88rem;color:var(--text);background:var(--white);
+  outline:none;width:100%;resize:none;transition:border-color var(--tr),box-shadow var(--tr);
+}
+.ff input:focus,.ff textarea:focus,.ff select:focus{
+  border-color:var(--orange);box-shadow:0 0 0 3px rgba(245,166,35,0.1);
+}
+.ff textarea{min-height:100px}
+.btn-submit{
+  background:var(--navy);color:var(--white);border:none;cursor:pointer;
+  padding:0.85rem 2rem;border-radius:6px;font-family:'Oswald',sans-serif;
+  font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  transition:background var(--tr),transform var(--tr);
+}
+.btn-submit:hover{background:var(--navy2);transform:translateY(-2px)}
+.btn-submit svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.2}
+
+/* ── FOOTER ── */
+footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
+.footer-top{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:3rem;margin-bottom:2.5rem;
+}
+.fbrand strong{
+  font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:rgba(255,255,255,0.9);
+}
+.fbrand .fsub{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25)}
+.fbrand p{margin-top:0.8rem;font-size:0.8rem;line-height:1.75;max-width:220px}
+.fbrand .fgstin{
+  display:inline-block;margin-top:1rem;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  color:var(--orange);padding:0.35rem 0.9rem;border-radius:4px;
+  font-size:0.68rem;letter-spacing:0.1em;font-family:monospace;
+}
+.fcol h4{
+  font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.85);margin-bottom:1.2rem;
+}
+.fcol ul{list-style:none}
+.fcol li{margin-bottom:0.6rem}
+.fcol a{color:rgba(255,255,255,0.38);font-size:0.82rem;transition:color var(--tr)}
+.fcol a:hover{color:var(--orange)}
+.fgstin-box{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);
+  border-radius:8px;padding:1.2rem;
+}
+.fgstin-box small{display:block;font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:0.4rem}
+.fgstin-box .fnum{font-size:0.95rem;font-weight:600;color:rgba(255,255,255,0.8);letter-spacing:0.1em;font-family:monospace}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;
+  border-top:1px solid rgba(255,255,255,0.06);padding-top:1.4rem;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.73rem;flex-wrap:wrap;gap:0.5rem;
+}
+
+/* ── FABs ── */
+.fab-wa{
+  position:fixed;bottom:2rem;left:2rem;z-index:300;
+  width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(37,211,102,0.4);
+  transition:transform var(--tr),box-shadow var(--tr);
+  opacity:0;pointer-events:none;
+}
+.fab-wa.show{opacity:1;pointer-events:auto}
+.fab-wa:hover{transform:scale(1.1) translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,0.55)}
+.fab-wa svg{width:26px;height:26px;fill:#fff}
+.fab-cta{
+  position:fixed;bottom:2rem;right:2rem;z-index:300;
+  display:flex;align-items:center;gap:0.55rem;
+  background:var(--orange);color:var(--white);
+  padding:0.7rem 1.4rem;border-radius:99px;
+  font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  box-shadow:0 6px 22px rgba(245,166,35,0.4);
+  transition:all var(--tr);
+  opacity:0;pointer-events:none;
+}
+.fab-cta.show{opacity:1;pointer-events:auto}
+.fab-cta:hover{background:var(--orange2);transform:translateY(-3px)}
+.fab-cta svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.2}
+
+/* ── REVEAL ── */
+.rev{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.rev.in{opacity:1;transform:none}
+.revL{opacity:0;transform:translateX(-24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.revL.in{opacity:1;transform:none}
+.revR{opacity:0;transform:translateX(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.revR.in{opacity:1;transform:none}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}
+.d4{transition-delay:0.4s}.d5{transition-delay:0.5s}.d6{transition-delay:0.6s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .gst-layout{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .wwo-products{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:820px){
+  #hero{height:100svh;min-height:520px}
+  .hero-body{padding:62px 5% 36px}
+  .hero-left h1{font-size:clamp(24px,5vw,36px)}
+  .contact-grid,.form-row{grid-template-columns:1fr}
+  .how-inner{grid-template-columns:1fr;gap:3rem}
+  .cta-inner{grid-template-columns:1fr}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--white);flex-direction:column;gap:0;
+    border-bottom:2px solid var(--offwhite);box-shadow:var(--sh);z-index:100;
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{border-bottom:1px solid var(--border);width:100%}
+  .nav-links a{padding:0.85rem 6%}
+  .hamburger{display:flex}
+  nav{position:fixed;flex-wrap:wrap}
+  .fab-cta,.fab-wa{bottom:1.2rem}
+  .fab-cta{right:1.2rem}
+  .fab-wa{left:1.2rem}
+  .wwo-products{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+  section{padding:3.5rem 5%}
+  .steps-flow{flex-direction:column;align-items:center;gap:1rem}
+  .step-item:not(:last-child)::after{content:'↓';right:auto;top:auto;position:static;display:block;text-align:center;margin-top:0.3rem}
+  .footer-top{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .wwo-products{grid-template-columns:repeat(2,1fr)}
+  .wwo-banner{flex-direction:column;align-items:flex-start;gap:1rem}
+  .wwo-products{padding:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/911234567890" target="_blank" class="fab-wa" id="fabWa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Contact FAB -->
+<a href="#contact" class="fab-cta" id="fabCta">
+  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.35 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Contact Us
+</a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="./logo.png" alt="Greenway Enterprises">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#what-we-offer">What We Offer</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+    <li><a href="#contact" class="nav-quote">Get a Quote</a></li>
+  </ul>
+  <div class="hamburger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-body">
+    <div class="hero-row">
+
+      <div class="hero-left">
+        <h1>Complete Uniform &amp;<br><span>Industrial Supply</span>Solutions</h1>
+        <div class="hero-cats">
+          <span>Corporate</span><span>Industrial</span><span>Hospital</span>
+          <span>School</span><span>Hospitality</span><span>Security</span><span>Housekeeping</span>
+        </div>
+        <div class="hero-btns">
+          <a href="#what-we-offer" class="btn-orange">What We Offer</a>
+          <a href="#contact" class="btn-outline-white">Get a Quote</a>
+          <a href="#how" class="btn-outline-white">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            Watch Video
+          </a>
+        </div>
+        <div class="hero-trust">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <span>GSTIN: <strong>29BOUPM4948G1Z4</strong></span>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- WHAT WE OFFER -->
+<section id="what-we-offer">
+  <div class="sec-inner">
+    <div class="sec-head rev">
+      <h2>What We Offer</h2>
+      <div class="uo"></div>
+      <p>End-to-end uniform and packaging solutions built for every sector — select an industry to explore our services and products.</p>
+    </div>
+
+    <!-- industry filter bar -->
+    <div class="wwo-filters rev">
+      <button class="wwo-filter active" data-industry="corporate">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Corporate
+      </button>
+      <button class="wwo-filter" data-industry="industrial">
+        <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l4-6h8l4 6v10"/><rect x="9" y="14" width="6" height="6"/></svg>Industrial
+      </button>
+      <button class="wwo-filter" data-industry="hospital">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Hospital
+      </button>
+      <button class="wwo-filter" data-industry="school">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>School
+      </button>
+      <button class="wwo-filter" data-industry="hospitality">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Hospitality
+      </button>
+      <button class="wwo-filter" data-industry="security">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security
+      </button>
+      <button class="wwo-filter" data-industry="housekeeping">
+        <svg viewBox="0 0 24 24"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><path d="M3 9l2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>Housekeeping
+      </button>
+      <button class="wwo-filter" data-industry="embroidery">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>Embroidery &amp; Printing
+      </button>
+    </div>
+
+    <!-- full-width dynamic panel -->
+    <div class="wwo-panel rev" id="wwoPanel">
+
+        <!-- Corporate -->
+        <div class="wwo-pane active" data-industry="corporate">
+          <div class="wwo-banner">
+            <div class="wwo-banner-text">
+              <h3><span>Corporate</span> Staff Uniforms</h3>
+              <p>Professional and stylish uniforms for your corporate identity and office teams.</p>
+            </div>
+            <a href="#contact" class="btn-orange">Get a Quote</a>
+          </div>
+          <div class="wwo-products">
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Corporate Shirts</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">T-Shirts</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Blazers</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Formal Trousers</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Corporate Ties &amp; Accessories</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Reception Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
+          </div>
+        </div>
+
+        <!-- Industrial -->
+        <div class="wwo-pane" data-industry="industrial">
+          <div class="wwo-banner">
+            <div class="wwo-banner-text">
+              <h3><span>Industrial</span> &amp; Factory Uniforms</h3>
+              <p>High quality industrial uniforms and packing materials for factory environments.</p>
+            </div>
+            <a href="#contact" class="btn-orange">Get a Quote</a>
+          </div>
+          <div class="wwo-products">
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Industrial Coverall</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Reflective Jackets</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Shoes</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Factory Aprons</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Packing Materials</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Hard Hats &amp; Safety Gear</div><span class="wwo-card-tag">View Details</span></div></div>
+          </div>
+        </div>
+
+        <!-- Hospital -->
+        <div class="wwo-pane" data-industry="hospital">
+          <div class="wwo-banner">
+            <div class="wwo-banner-text">
+              <h3><span>Hospital</span> &amp; Medical Uniforms</h3>
+              <p>Comfortable and durable uniforms for healthcare professionals and clinical staff.</p>
+            </div>
+            <a href="#contact" class="btn-orange">Get a Quote</a>
+          </div>
+          <div class="wwo-products">
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Medical Scrubs</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Lab Coats</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Nurse Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Surgical Gowns</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Patient Gowns</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Pharmacy Coats</div><span class="wwo-card-tag">View Details</span></div></div>
+          </div>
+        </div>
+
+        <!-- School -->
+        <div class="wwo-pane" data-industry="school">
+          <div class="wwo-banner">
+            <div class="wwo-banner-text">
+              <h3><span>School</span> &amp; College Uniforms</h3>
+              <p>Best quality uniforms for schools and educational institutions, available in bulk.</p>
+            </div>
+            <a href="#contact" class="btn-orange">Get a Quote</a>
+          </div>
+          <div class="wwo-products">
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">School Uniform Set</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">School Shirts &amp; Blouses</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Trousers &amp; Skirts</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Sports Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">House &amp; Tie Sets</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">College Blazers</div><span class="wwo-card-tag">View Details</span></div></div>
+          </div>
+        </div>
+
+        <!-- Hospitality -->
+        <div class="wwo-pane" data-industry="hospitality">
+          <div class="wwo-banner">
+            <div class="wwo-banner-text">
+              <h3><span>Hotel</span> &amp; Hospitality Uniforms</h3>
+              <p>Elegant uniforms for hotel, restaurant and hospitality staff to impress guests.</p>
+            </div>
+            <a href="#contact" class="btn-orange">Get a Quote</a>
+          </div>
+          <div class="wwo-products">
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Chef Uniform</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Waiter &amp; Steward Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Front Desk Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Banquet Staff Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Aprons &amp; Caps</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Spa &amp; Salon Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div class="wwo-pane" data-industry="security">
+          <div class="wwo-banner">
+            <div class="wwo-banner-text">
+              <h3><span>Security</span> Guard Uniforms</h3>
+              <p>Uniforms and equipment for security and safety professionals built for authority.</p>
+            </div>
+            <a href="#contact" class="btn-orange">Get a Quote</a>
+          </div>
+          <div class="wwo-products">
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Security Uniform</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Guard Jackets</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Patrol Caps &amp; Belts</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Epaulettes &amp; Badges</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Security Boots</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Baton &amp; Torch Holders</div><span class="wwo-card-tag">View Details</span></div></div>
+          </div>
+        </div>
+
+        <!-- Housekeeping -->
+        <div class="wwo-pane" data-industry="housekeeping">
+          <div class="wwo-banner">
+            <div class="wwo-banner-text">
+              <h3><span>Housekeeping</span> Uniforms &amp; Materials</h3>
+              <p>Durable uniforms and cleaning materials for housekeeping staff.</p>
+            </div>
+            <a href="#contact" class="btn-orange">Get a Quote</a>
+          </div>
+          <div class="wwo-products">
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Housekeeping Uniform</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Cleaning Aprons</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Mop &amp; Cleaning Kits</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Hand Gloves</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Shoe Covers</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Head Caps</div><span class="wwo-card-tag">View Details</span></div></div>
+          </div>
+        </div>
+
+        <!-- Embroidery & Printing -->
+        <div class="wwo-pane" data-industry="embroidery">
+          <div class="wwo-banner">
+            <div class="wwo-banner-text">
+              <h3><span>Embroidery</span> &amp; Printing</h3>
+              <p>Add your brand identity with precision embroidery and printing on any garment.</p>
+            </div>
+            <a href="#contact" class="btn-orange">Get a Quote</a>
+          </div>
+          <div class="wwo-products">
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Logo Embroidery</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Screen Printing</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Heat Transfer Printing</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Name &amp; Number Printing</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Woven Labels</div><span class="wwo-card-tag">View Details</span></div></div>
+            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Patch Badges</div><span class="wwo-card-tag">View Details</span></div></div>
+          </div>
+        </div>
+
+    </div><!-- /wwo-panel -->
+
+    <div class="wwo-bottom rev">
+      <a href="#contact" class="btn-orange">Request Full Catalogue</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS + HOW TO MEASURE -->
+<section id="how">
+  <div class="how-inner">
+    <div class="revL">
+      <h2>How It Works</h2>
+      <div class="how-underline"></div>
+      <div class="steps-flow">
+        <div class="step-item">
+          <div class="step-circle">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="step-title">Share Requirement</div>
+          <div class="step-desc">Tell us your uniform requirements in detail.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="step-title">Size Measurement</div>
+          <div class="step-desc">Follow our guide for perfect fit.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div class="step-title">Custom Production</div>
+          <div class="step-desc">We create your uniforms with care.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div class="step-title">Delivery &amp; Support</div>
+          <div class="step-desc">Timely delivery and after-sales support.</div>
+        </div>
+      </div>
+    </div>
+    <div class="revR">
+      <h2>How to Measure Uniform Size Correctly</h2>
+      <div class="how-underline"></div>
+
+      <!-- Male / Female tab switcher -->
+      <div class="vid-tabs">
+        <button class="vid-tab active" data-src="./male.mp4" id="tabMale">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Male
+        </button>
+        <button class="vid-tab" data-src="./female.mp4" id="tabFemale">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Female
+        </button>
+      </div>
+
+      <div class="measure-video-wrap" id="vidWrap">
+        <video id="measVideo" preload="metadata">
+          <source src="./male.mp4" type="video/mp4">
+        </video>
+        <div class="vid-controls">
+          <div class="vid-progress-wrap" id="vidProgressWrap">
+            <div class="vid-progress-bar" id="vidProgressBar"></div>
+          </div>
+          <div class="vid-btns">
+            <!-- play/pause -->
+            <button class="vid-btn" id="vidPlayBtn" title="Play">
+              <svg id="iconPlay" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            </button>
+            <!-- mute -->
+            <button class="vid-btn" id="vidMuteBtn" title="Mute">
+              <svg id="iconVol" viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              <svg id="iconMute" viewBox="0 0 24 24" style="display:none"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
+            <span class="vid-time" id="vidTime">0:00 / 0:00</span>
+            <div class="vid-spacer"></div>
+            <!-- fullscreen -->
+            <button class="vid-btn" id="vidFsBtn" title="Fullscreen">
+              <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="measure-guide">
+        <h4>Measurement Guide</h4>
+        <ul class="measure-list">
+          <li><span class="num">1</span> Chest — measure around the fullest part</li>
+          <li><span class="num">2</span> Shoulder — across from shoulder to shoulder</li>
+          <li><span class="num">3</span> Waist — around the narrowest part</li>
+          <li><span class="num">4</span> Sleeve Length — shoulder tip to wrist</li>
+          <li><span class="num">5</span> Length — shoulder to desired hem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="sec-inner">
+    <div class="sec-head rev">
+      <h2>Our Valued Clients</h2>
+      <div class="uo"></div>
+      <p>Trusted by businesses, institutions and organisations across industries throughout India.</p>
+    </div>
+    <div class="clients-slider rev d1">
+      <div class="clients-track">
+        <div class="client-tile"><img src="./customers/colhas.png"   alt="Colhas"></div>
+        <div class="client-tile"><img src="./customers/Picture2.png" alt="Client 2"></div>
+        <div class="client-tile"><img src="./customers/Picture3.png" alt="Client 3"></div>
+        <div class="client-tile"><img src="./customers/Picture4.png" alt="Client 4"></div>
+        <div class="client-tile"><img src="./customers/Picture7.png" alt="Client 5"></div>
+        <div class="client-tile"><img src="./customers/Picture8.jpg" alt="Client 6"></div>
+        <div class="client-tile"><img src="./customers/colhas.png"   alt="Colhas"></div>
+        <div class="client-tile"><img src="./customers/Picture2.png" alt="Client 2"></div>
+        <div class="client-tile"><img src="./customers/Picture3.png" alt="Client 3"></div>
+        <div class="client-tile"><img src="./customers/Picture4.png" alt="Client 4"></div>
+        <div class="client-tile"><img src="./customers/Picture7.png" alt="Client 5"></div>
+        <div class="client-tile"><img src="./customers/Picture8.jpg" alt="Client 6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-text revL">
+      <h2>Need Custom Uniforms<br>for Your Organization?</h2>
+      <p>We provide high quality uniforms &amp; materials tailored to your needs — from single pieces to bulk orders.</p>
+      <div class="cta-badges">
+        <div class="cta-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Premium Quality</div>
+        <div class="cta-badge"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> On-Time Delivery</div>
+        <div class="cta-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4"/></svg> Custom Branding</div>
+      </div>
+    </div>
+    <div class="cta-actions revR">
+      <a href="#contact" class="btn-orange" style="width:100%;justify-content:center;">Get a Quotation</a>
+      <a href="https://wa.me/911234567890" target="_blank" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+      <a href="#" class="btn-download">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Catalogue
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GST INFO -->
+<section id="gst">
+  <div class="sec-inner">
+    <div class="sec-head rev">
+      <h2>Verified Business</h2>
+      <div class="uo"></div>
+      <p>Greenway Enterprises is fully GST registered. All transactions are compliant with proper tax invoices issued for every order.</p>
+    </div>
+    <div class="gst-layout">
+      <div class="gst-content revL">
+        <p>All transactions are fully GST-compliant. We provide proper tax invoices with every order, making billing and input tax credit simple and hassle-free for your business.</p>
+        <ul class="gst-points">
+          <li>GST Compliant Invoices Provided</li>
+          <li>Input Tax Credit Eligible</li>
+          <li>Transparent Billing — No Hidden Charges</li>
+          <li>Valid GST Registration</li>
+        </ul>
+      </div>
+      <div class="gst-panel revR">
+        <div class="gst-num-box">
+          <small>GSTIN Registration Number</small>
+          <div class="gnum">29BOUPM4948G1Z4</div>
+        </div>
+        <div class="gst-verified">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Verified GST Registered Business
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-inner">
+    <div class="sec-head rev">
+      <h2>Contact Us</h2>
+      <div class="uo"></div>
+      <p>Reach us directly — our team will respond promptly to your enquiry or quotation request.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="revL">
+        <div class="contact-info">
+          <div class="c-card">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="c-body"><label>Address</label><span>Your Address Goes Here,<br>City, State, Pin Code</span></div>
+          </div>
+          <div class="c-card">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.35 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="c-body"><label>Phone</label><span>+91 12345 67890</span></div>
+          </div>
+          <div class="c-card">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="c-body"><label>Email</label><span>info@greenwayenterprises.com</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="revR">
+        <form class="contact-form" id="contactForm">
+          <h3>Send Us a Message</h3>
+          <div class="form-row">
+            <div class="ff"><label for="fname">First Name</label><input type="text" id="fname" placeholder="John" autocomplete="given-name"></div>
+            <div class="ff"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="Doe" autocomplete="family-name"></div>
+          </div>
+          <div class="ff"><label for="femail">Email Address</label><input type="email" id="femail" placeholder="john@company.com" autocomplete="email"></div>
+          <div class="ff">
+            <label for="fservice">Product / Service</label>
+            <select id="fservice">
+              <option value="">Select a product…</option>
+              <option>Corporate Staff Uniforms</option>
+              <option>Industrial &amp; Factory Uniforms</option>
+              <option>Hospital &amp; Medical Uniforms</option>
+              <option>School &amp; College Uniforms</option>
+              <option>Hotel &amp; Hospitality Uniforms</option>
+              <option>Industrial Packing Material</option>
+              <option>Custom Embroidery &amp; Printing</option>
+              <option>Security Guard Uniforms &amp; Equipment</option>
+              <option>Housekeeping Uniforms &amp; Materials</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="ff"><label for="fmsg">Message</label><textarea id="fmsg" placeholder="Tell us about your requirements — quantity, sizes, customisation…"></textarea></div>
+          <button type="submit" class="btn-submit">
+            Send Message
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="fbrand">
+      <div><strong>Greenway</strong><div class="fsub">Enterprises</div></div>
+      <p>Your trusted partner for uniforms and packaging solutions across India. Quality you can count on.</p>
+      <div class="fgstin">GSTIN: 29BOUPM4948G1Z4</div>
+    </div>
+    <div class="fcol">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#what-we-offer">What We Offer</a></li>
+        <li><a href="#how">How to Measure</a></li>
+        <li><a href="#clients">Our Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Contact Info</h4>
+      <ul>
+        <li><a href="#">Your Address,<br>City, State, Pin Code</a></li>
+        <li><a href="tel:+911234567890">+91 12345 67890</a></li>
+        <li><a href="mailto:info@greenwayenterprises.com">info@greenwayenterprises.com</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>GSTIN</h4>
+      <div class="fgstin-box">
+        <small>Registration Number</small>
+        <div class="fnum">29BOUPM4948G1Z4</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Greenway Enterprises. All Rights Reserved.</span>
+    <span>Made with care in India 🇮🇳</span>
+  </div>
+</footer>
+
+<script>
+/* Reveal on scroll */
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, {threshold:0.1});
+document.querySelectorAll('.rev,.revL,.revR').forEach(el => obs.observe(el));
+
+/* Nav scroll */
+const navbar = document.getElementById('navbar');
+const fabCta = document.getElementById('fabCta');
+const fabWa  = document.getElementById('fabWa');
+window.addEventListener('scroll', () => {
+  const s = window.scrollY > 60;
+  navbar.style.boxShadow = s ? '0 4px 20px rgba(0,0,0,0.12)' : '';
+  const show = window.scrollY > 300;
+  fabCta.classList.toggle('show', show);
+  fabWa.classList.toggle('show', show);
+});
+
+/* Hamburger */
+const burger   = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  burger.classList.remove('open');
+  navLinks.classList.remove('open');
+}));
+
+
+/* What We Offer — industry filter switcher */
+(function(){
+  function switchIndustry(id){
+    document.querySelectorAll('.wwo-filter').forEach(function(el){
+      el.classList.toggle('active', el.dataset.industry === id);
+    });
+    document.querySelectorAll('.wwo-pane').forEach(function(pane){
+      pane.classList.toggle('active', pane.dataset.industry === id);
+    });
+  }
+  document.querySelectorAll('.wwo-filter').forEach(function(btn){
+    btn.addEventListener('click', function(){ switchIndustry(btn.dataset.industry); });
+  });
+})();
+
+/* Contact form */
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.btn-submit');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#1a3a22';
+  btn.style.pointerEvents = 'none';
+  setTimeout(() => {
+    btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+    btn.style.background = '';
+    btn.style.pointerEvents = '';
+    this.reset();
+  }, 3000);
+});
+</script>
+<script>
+(function(){
+  const wrap      = document.getElementById('vidWrap');
+  const vid       = document.getElementById('measVideo');
+  const playBtn   = document.getElementById('vidPlayBtn');
+  const iconPlay  = document.getElementById('iconPlay');
+  const iconPause = document.getElementById('iconPause');
+  const muteBtn   = document.getElementById('vidMuteBtn');
+  const iconVol   = document.getElementById('iconVol');
+  const iconMute  = document.getElementById('iconMute');
+  const progWrap  = document.getElementById('vidProgressWrap');
+  const progBar   = document.getElementById('vidProgressBar');
+  const timeEl    = document.getElementById('vidTime');
+  const fsBtn     = document.getElementById('vidFsBtn');
+
+  function fmt(s){
+    s=Math.floor(s||0);
+    return Math.floor(s/60)+':'+(s%60<10?'0':'')+(s%60);
+  }
+
+  function resetPlayer(){
+    progBar.style.width='0%';
+    timeEl.textContent='0:00 / 0:00';
+    iconPlay.style.display='';
+    iconPause.style.display='none';
+  }
+
+  // ── Gender tab switching ──
+  document.querySelectorAll('.vid-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      if(tab.classList.contains('active')) return;
+      // update active tab
+      document.querySelectorAll('.vid-tab').forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      // swap video source
+      var wasMuted = vid.muted;
+      vid.pause();
+      vid.src = tab.dataset.src;
+      vid.muted = wasMuted;
+      vid.load();
+      resetPlayer();
+    });
+  });
+
+  // play / pause
+  playBtn.addEventListener('click',function(){
+    vid.paused ? vid.play() : vid.pause();
+  });
+  vid.addEventListener('play',function(){
+    iconPlay.style.display='none'; iconPause.style.display='';
+  });
+  vid.addEventListener('pause',function(){
+    iconPlay.style.display=''; iconPause.style.display='none';
+  });
+
+  // progress
+  vid.addEventListener('timeupdate',function(){
+    if(!vid.duration) return;
+    var pct=(vid.currentTime/vid.duration)*100;
+    progBar.style.width=pct+'%';
+    timeEl.textContent=fmt(vid.currentTime)+' / '+fmt(vid.duration);
+  });
+  vid.addEventListener('loadedmetadata',function(){
+    timeEl.textContent='0:00 / '+fmt(vid.duration);
+  });
+
+  // seek on click
+  progWrap.addEventListener('click',function(e){
+    var rect=progWrap.getBoundingClientRect();
+    var ratio=(e.clientX-rect.left)/rect.width;
+    vid.currentTime=ratio*vid.duration;
+  });
+
+  // mute
+  muteBtn.addEventListener('click',function(){
+    vid.muted=!vid.muted;
+    iconVol.style.display=vid.muted?'none':'';
+    iconMute.style.display=vid.muted?'':'none';
+  });
+
+  // fullscreen
+  fsBtn.addEventListener('click',function(){
+    if(!document.fullscreenElement){
+      (wrap.requestFullscreen||wrap.webkitRequestFullscreen).call(wrap);
+    } else {
+      (document.exitFullscreen||document.webkitExitFullscreen).call(document);
+    }
+  });
+})();
+</script>
+</body>
+</html>

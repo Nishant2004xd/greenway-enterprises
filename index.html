@@ -314,36 +314,92 @@ section{padding:5rem 8%}
 
 .wwo-bottom{text-align:center;padding:2rem 0 0.5rem}
 
-/* ── HOW IT WORKS + MEASURE ── */
-#how{background:var(--offwhite)}
+/* ── HOW IT WORKS ── */
+#how{background:var(--navy);padding:5rem 8%}
+.how-section{max-width:1200px;margin:0 auto}
+.how-section .sec-head{margin-bottom:3.5rem}
+.how-section .sec-head h2{color:var(--white)}
+.how-section .sec-head p{color:rgba(255,255,255,0.55)}
+
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:0;
+  position:relative;
+}
+/* connecting line behind all steps */
+.steps-grid::before{
+  content:'';
+  position:absolute;
+  top:44px;left:calc(100%/12);right:calc(100%/12);
+  height:2px;
+  background:linear-gradient(90deg,rgba(232,160,32,0.25),rgba(232,160,32,0.6),rgba(232,160,32,0.25));
+  z-index:0;
+}
+.step-card{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:0 0.6rem;position:relative;z-index:1;
+}
+.step-num-wrap{position:relative;margin-bottom:1.4rem}
+.step-ring{
+  width:88px;height:88px;border-radius:50%;
+  background:rgba(255,255,255,0.05);
+  border:1.5px solid rgba(232,160,32,0.3);
+  display:flex;align-items:center;justify-content:center;
+  transition:background var(--tr),border-color var(--tr),transform var(--tr);
+}
+.step-card:hover .step-ring{
+  background:rgba(232,160,32,0.15);
+  border-color:var(--orange);
+  transform:translateY(-6px);
+}
+.step-icon-circle{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--navy2);
+  border:2px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  transition:background var(--tr),border-color var(--tr);
+}
+.step-card:hover .step-icon-circle{
+  background:var(--orange);
+  border-color:var(--orange);
+}
+.step-icon-circle svg{
+  width:26px;height:26px;stroke:rgba(255,255,255,0.75);
+  fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+  transition:stroke var(--tr);
+}
+.step-card:hover .step-icon-circle svg{stroke:var(--white)}
+.step-badge{
+  position:absolute;top:-4px;right:-4px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--orange);color:var(--white);
+  font-size:0.64rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--navy);
+  letter-spacing:0;
+}
+.step-label{
+  font-size:0.82rem;font-weight:700;
+  color:var(--white);letter-spacing:0.04em;
+  text-transform:uppercase;line-height:1.3;
+  margin-bottom:0.45rem;
+}
+.step-sub{
+  font-size:0.73rem;color:rgba(255,255,255,0.45);
+  line-height:1.55;max-width:120px;
+}
+
+/* ── HOW TO MEASURE ── */
+#measure{background:var(--offwhite)}
 .how-inner{
   max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;
 }
-.how-works h2,.how-measure h2{
+.how-measure h2{
   font-size:1.35rem;font-weight:700;text-transform:uppercase;
   letter-spacing:0.06em;color:var(--navy);margin-bottom:0.5rem;
 }
 .how-underline{width:40px;height:3px;background:var(--orange);border-radius:2px;margin-bottom:1.8rem}
-.steps-flow{display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;overflow-x:auto}
-.step-item{flex:1;min-width:0;text-align:center;position:relative}
-.step-item:not(:last-child)::after{
-  content:'→';
-  position:absolute;right:-0.6rem;top:1.5rem;
-  font-size:1.1rem;color:var(--orange);font-weight:700;z-index:1;
-}
-.step-circle{
-  width:56px;height:56px;border-radius:50%;
-  background:var(--white);border:2px solid var(--navy2);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 0.8rem;
-  transition:border-color var(--tr),background var(--tr);
-}
-.step-item:hover .step-circle{border-color:var(--orange);background:rgba(245,166,35,0.08)}
-.step-circle svg{width:24px;height:24px;stroke:var(--navy);fill:none;stroke-width:1.8;transition:stroke var(--tr)}
-.step-item:hover .step-circle svg{stroke:var(--orange)}
-.step-title{font-size:0.78rem;font-weight:600;color:var(--navy);letter-spacing:0.04em;margin-bottom:0.25rem}
-.step-desc{font-size:0.7rem;color:var(--muted);line-height:1.5;padding:0 0.3rem}
 
 .measure-video-wrap{
   position:relative;border-radius:var(--r);overflow:hidden;
@@ -680,8 +736,9 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
 }
 @media(max-width:640px){
   section{padding:3.5rem 5%}
-  .steps-flow{flex-direction:column;align-items:center;gap:1rem}
-  .step-item:not(:last-child)::after{content:'↓';right:auto;top:auto;position:static;display:block;text-align:center;margin-top:0.3rem}
+  #how{padding:3.5rem 5%}
+  .steps-grid{grid-template-columns:repeat(2,1fr);gap:2rem}
+  .steps-grid::before{display:none}
   .footer-top{grid-template-columns:1fr}
   .stats-row{grid-template-columns:1fr 1fr}
   .wwo-products{grid-template-columns:repeat(2,1fr)}
@@ -949,58 +1006,102 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
   </div>
 </section>
 
-<!-- HOW IT WORKS + HOW TO MEASURE -->
+<!-- HOW IT WORKS -->
 <section id="how">
+  <div class="how-section">
+    <div class="sec-head rev">
+      <h2 class="white">How It Works</h2>
+      <div class="uo"></div>
+      <p class="white">From your first enquiry to delivery at your doorstep — here's our simple 6-step process.</p>
+    </div>
+    <div class="steps-grid">
+
+      <div class="step-card rev d1">
+        <div class="step-num-wrap">
+          <div class="step-ring">
+            <div class="step-icon-circle">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+          </div>
+          <div class="step-badge">01</div>
+        </div>
+        <div class="step-label">Requirement</div>
+        <div class="step-sub">Share your uniform needs with us.</div>
+      </div>
+
+      <div class="step-card rev d2">
+        <div class="step-num-wrap">
+          <div class="step-ring">
+            <div class="step-icon-circle">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+          </div>
+          <div class="step-badge">02</div>
+        </div>
+        <div class="step-label">Prepare Quote</div>
+        <div class="step-sub">We prepare a detailed quotation for you.</div>
+      </div>
+
+      <div class="step-card rev d3">
+        <div class="step-num-wrap">
+          <div class="step-ring">
+            <div class="step-icon-circle">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+          </div>
+          <div class="step-badge">03</div>
+        </div>
+        <div class="step-label">Finalize Order</div>
+        <div class="step-sub">Confirm quantities and specifications.</div>
+      </div>
+
+      <div class="step-card rev d1">
+        <div class="step-num-wrap">
+          <div class="step-ring">
+            <div class="step-icon-circle">
+              <svg viewBox="0 0 24 24"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+          </div>
+          <div class="step-badge">04</div>
+        </div>
+        <div class="step-label">Size Measurement</div>
+        <div class="step-sub">Follow our guide for a perfect fit.</div>
+      </div>
+
+      <div class="step-card rev d2">
+        <div class="step-num-wrap">
+          <div class="step-ring">
+            <div class="step-icon-circle">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+          </div>
+          <div class="step-badge">05</div>
+        </div>
+        <div class="step-label">Production</div>
+        <div class="step-sub">We manufacture your uniforms with care.</div>
+      </div>
+
+      <div class="step-card rev d3">
+        <div class="step-num-wrap">
+          <div class="step-ring">
+            <div class="step-icon-circle">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+          </div>
+          <div class="step-badge">06</div>
+        </div>
+        <div class="step-label">Delivery &amp; Shipment</div>
+        <div class="step-sub">On-time delivery to your doorstep.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO MEASURE -->
+<section id="measure">
   <div class="how-inner">
     <div class="revL">
-      <h2>How It Works</h2>
-      <div class="how-underline"></div>
-      <div class="steps-flow">
-        <div class="step-item">
-          <div class="step-circle">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <div class="step-title">Requirement</div>
-          <div class="step-desc">Share your uniform needs with us.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-circle">
-            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          </div>
-          <div class="step-title">Prepare Quote</div>
-          <div class="step-desc">We prepare a detailed quotation for you.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-circle">
-            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
-          <div class="step-title">Finalize Order</div>
-          <div class="step-desc">Confirm quantities and specifications.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-circle">
-            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          </div>
-          <div class="step-title">Size Measurement</div>
-          <div class="step-desc">Follow our guide for a perfect fit.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-circle">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          </div>
-          <div class="step-title">Production</div>
-          <div class="step-desc">We manufacture your uniforms with care.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-circle">
-            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <div class="step-title">Delivery &amp; Shipment</div>
-          <div class="step-desc">On-time delivery to your doorstep.</div>
-        </div>
-      </div>
-    </div>
-    <div class="revR">
       <h2>How to Measure Uniform Size Correctly</h2>
       <div class="how-underline"></div>
 

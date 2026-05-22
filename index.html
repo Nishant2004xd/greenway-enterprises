@@ -232,7 +232,7 @@ section{padding:5rem 8%}
   width:48px;height:3px;background:var(--orange);
   border-radius:2px;margin:0.7rem auto 1rem;
 }
-.sec-head p{font-size:0.95rem;color:var(--muted);max-width:580px;margin:0 auto}
+.sec-head p{font-size:0.95rem;color:var(--mid);max-width:580px;margin:0 auto}
 .sec-head p.white{color:rgba(255,255,255,0.6)}
 
 
@@ -284,28 +284,23 @@ section{padding:5rem 8%}
 /* product grid */
 .wwo-products{
   padding:1.6rem 1.8rem;background:var(--offwhite);
-  display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;
 }
 .wwo-card{
   background:var(--white);border:1px solid var(--border);
   border-radius:var(--r);overflow:hidden;
   transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr);
-  cursor:pointer;
+  cursor:default;
 }
 .wwo-card:hover{transform:translateY(-4px);box-shadow:var(--shmd);border-color:var(--orange)}
 .wwo-card-img{
-  height:110px;background:#e8edf5;
+  height:200px;background:#f0f3f8;
   display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
 }
-.wwo-card-img svg{width:32px;height:32px;stroke:rgba(13,27,42,0.18);fill:none;stroke-width:1.2}
-.wwo-card-body{padding:0.6rem 0.7rem 0.7rem}
-.wwo-card-name{font-size:0.74rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;line-height:1.3}
-.wwo-card-tag{
-  display:inline-block;font-size:0.6rem;font-weight:700;
-  letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--orange);background:rgba(245,166,35,0.1);
-  padding:0.15rem 0.45rem;border-radius:3px;
-}
+.wwo-card-img img{width:100%;height:100%;object-fit:contain;display:block;padding:0.5rem}
+.wwo-card-body{padding:0.75rem 0.9rem 0.85rem;border-top:1px solid var(--border)}
+.wwo-card-name{font-size:0.82rem;font-weight:600;color:var(--navy);line-height:1.3;text-align:center}
 
 .wwo-bottom{text-align:center;padding:2rem 0 0.5rem}
 
@@ -649,7 +644,7 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
   .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
   .gst-layout{grid-template-columns:1fr}
   .stats-row{grid-template-columns:repeat(2,1fr)}
-  .wwo-products{grid-template-columns:repeat(4,1fr)}
+  .wwo-products{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:820px){
   #hero{height:100svh;min-height:520px}
@@ -671,7 +666,7 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
   .fab-cta,.fab-wa{bottom:1.2rem}
   .fab-cta{right:1.2rem}
   .fab-wa{left:1.2rem}
-  .wwo-products{grid-template-columns:repeat(3,1fr)}
+  .wwo-products{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:640px){
   section{padding:3.5rem 5%}
@@ -751,186 +746,176 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
 
     <!-- industry filter bar -->
     <div class="wwo-filters rev">
-      <button class="wwo-filter active" data-industry="corporate">
-        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Corporate
-      </button>
-      <button class="wwo-filter" data-industry="industrial">
-        <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l4-6h8l4 6v10"/><rect x="9" y="14" width="6" height="6"/></svg>Industrial
-      </button>
-      <button class="wwo-filter" data-industry="hospital">
-        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Hospital
-      </button>
-      <button class="wwo-filter" data-industry="school">
-        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>School
-      </button>
-      <button class="wwo-filter" data-industry="hospitality">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Hospitality
-      </button>
-      <button class="wwo-filter" data-industry="security">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security
-      </button>
-      <button class="wwo-filter" data-industry="housekeeping">
-        <svg viewBox="0 0 24 24"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><path d="M3 9l2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>Housekeeping
-      </button>
-      <button class="wwo-filter" data-industry="embroidery">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>Embroidery &amp; Printing
-      </button>
+      <button class="wwo-filter active" data-industry="corporate"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Corporate</button>
+      <button class="wwo-filter" data-industry="industrial"><svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l4-6h8l4 6v10"/><rect x="9" y="14" width="6" height="6"/></svg>Industrial</button>
+      <button class="wwo-filter" data-industry="hospital"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Hospital</button>
+      <button class="wwo-filter" data-industry="school"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>School</button>
+      <button class="wwo-filter" data-industry="hospitality"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Hospitality</button>
+      <button class="wwo-filter" data-industry="security"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security</button>
+      <button class="wwo-filter" data-industry="housekeeping"><svg viewBox="0 0 24 24"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><path d="M3 9l2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>Housekeeping</button>
+      <button class="wwo-filter" data-industry="packing"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Packing &amp; Safety</button>
+      <button class="wwo-filter" data-industry="embroidery"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>Embroidery &amp; Printing</button>
     </div>
 
     <!-- full-width dynamic panel -->
     <div class="wwo-panel rev" id="wwoPanel">
 
-        <!-- Corporate -->
-        <div class="wwo-pane active" data-industry="corporate">
-          <div class="wwo-banner">
-            <div class="wwo-banner-text">
-              <h3><span>Corporate</span> Staff Uniforms</h3>
-              <p>Professional and stylish uniforms for your corporate identity and office teams.</p>
-            </div>
-            <a href="#contact" class="btn-orange">Get a Quote</a>
+      <!-- Corporate -->
+      <div class="wwo-pane active" data-industry="corporate">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>Corporate</span> Staff Uniforms</h3>
+            <p>Professional and stylish uniforms for your corporate identity and office teams.</p>
           </div>
-          <div class="wwo-products">
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Corporate Shirts</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">T-Shirts</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Blazers</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Formal Trousers</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Corporate Ties &amp; Accessories</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Reception Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
-          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Corporate Shirts.png" alt="Corporate Shirts" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Corporate Shirts</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/TShirts.png" alt="T-Shirts" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">T-Shirts</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Blazers.png" alt="Blazers" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Blazers</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Formal Trousers.png" alt="Formal Trousers" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Formal Trousers</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Corporate Ties & Accessories.png" alt="Corporate Ties &amp; Accessories" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Corporate Ties &amp; Accessories</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reception Uniforms.png" alt="Reception Uniforms" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Reception Uniforms</div></div></div>
+        </div>
+      </div>
 
-        <!-- Industrial -->
-        <div class="wwo-pane" data-industry="industrial">
-          <div class="wwo-banner">
-            <div class="wwo-banner-text">
-              <h3><span>Industrial</span> &amp; Factory Uniforms</h3>
-              <p>High quality industrial uniforms and packing materials for factory environments.</p>
-            </div>
-            <a href="#contact" class="btn-orange">Get a Quote</a>
+      <!-- Industrial -->
+      <div class="wwo-pane" data-industry="industrial">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>Industrial</span> &amp; Factory Uniforms</h3>
+            <p>High quality industrial uniforms for factory environments.</p>
           </div>
-          <div class="wwo-products">
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Industrial Coverall</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Reflective Jackets</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Shoes</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Factory Aprons</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Packing Materials</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Hard Hats &amp; Safety Gear</div><span class="wwo-card-tag">View Details</span></div></div>
-          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Industrial Coverall.png" alt="Industrial Coverall" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Industrial Coverall</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reflective Jackets.png" alt="Reflective Jackets" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Reflective Jackets</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Safety Shoes.png" alt="Safety Shoes" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Shoes</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Factory Aprons.png" alt="Factory Aprons" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Factory Aprons</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Hard Hats & Safety Gear.png" alt="Hard Hats &amp; Safety Gear" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Hard Hats &amp; Safety Gear</div></div></div>
+        </div>
+      </div>
 
-        <!-- Hospital -->
-        <div class="wwo-pane" data-industry="hospital">
-          <div class="wwo-banner">
-            <div class="wwo-banner-text">
-              <h3><span>Hospital</span> &amp; Medical Uniforms</h3>
-              <p>Comfortable and durable uniforms for healthcare professionals and clinical staff.</p>
-            </div>
-            <a href="#contact" class="btn-orange">Get a Quote</a>
+      <!-- Hospital -->
+      <div class="wwo-pane" data-industry="hospital">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>Hospital</span> &amp; Medical Uniforms</h3>
+            <p>Comfortable and durable uniforms for healthcare professionals and clinical staff.</p>
           </div>
-          <div class="wwo-products">
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Medical Scrubs</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Lab Coats</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Nurse Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Surgical Gowns</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Patient Gowns</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Pharmacy Coats</div><span class="wwo-card-tag">View Details</span></div></div>
-          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Medical Scrubs.png" alt="Medical Scrubs" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Medical Scrubs</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Lab Coats.png" alt="Lab Coats" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Lab Coats</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Nurse Uniforms.png" alt="Nurse Uniforms" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Nurse Uniforms</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Surgical Gowns.png" alt="Surgical Gowns" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Surgical Gowns</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Patient Gowns.png" alt="Patient Gowns" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Patient Gowns</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Pharmacy Coats.png" alt="Pharmacy Coats" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Pharmacy Coats</div></div></div>
+        </div>
+      </div>
 
-        <!-- School -->
-        <div class="wwo-pane" data-industry="school">
-          <div class="wwo-banner">
-            <div class="wwo-banner-text">
-              <h3><span>School</span> &amp; College Uniforms</h3>
-              <p>Best quality uniforms for schools and educational institutions, available in bulk.</p>
-            </div>
-            <a href="#contact" class="btn-orange">Get a Quote</a>
+      <!-- School -->
+      <div class="wwo-pane" data-industry="school">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>School</span> &amp; College Uniforms</h3>
+            <p>Best quality uniforms for schools and educational institutions, available in bulk.</p>
           </div>
-          <div class="wwo-products">
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">School Uniform Set</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">School Shirts &amp; Blouses</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Trousers &amp; Skirts</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Sports Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">House &amp; Tie Sets</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">College Blazers</div><span class="wwo-card-tag">View Details</span></div></div>
-          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/School Uniform Set.png" alt="School Uniform Set" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">School Uniform Set</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/School Shirts & Blouses.png" alt="School Shirts &amp; Blouses" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">School Shirts &amp; Blouses</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Trousers & Skirts.png" alt="Trousers &amp; Skirts" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Trousers &amp; Skirts</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Sports Uniforms.png" alt="Sports Uniforms" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Sports Uniforms</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/College Blazers.png" alt="College Blazers" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">College Blazers</div></div></div>
+        </div>
+      </div>
 
-        <!-- Hospitality -->
-        <div class="wwo-pane" data-industry="hospitality">
-          <div class="wwo-banner">
-            <div class="wwo-banner-text">
-              <h3><span>Hotel</span> &amp; Hospitality Uniforms</h3>
-              <p>Elegant uniforms for hotel, restaurant and hospitality staff to impress guests.</p>
-            </div>
-            <a href="#contact" class="btn-orange">Get a Quote</a>
+      <!-- Hospitality -->
+      <div class="wwo-pane" data-industry="hospitality">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>Hotel</span> &amp; Hospitality Uniforms</h3>
+            <p>Elegant uniforms for hotel, restaurant and hospitality staff to impress guests.</p>
           </div>
-          <div class="wwo-products">
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Chef Uniform</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Waiter &amp; Steward Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Front Desk Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Banquet Staff Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Aprons &amp; Caps</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Spa &amp; Salon Uniforms</div><span class="wwo-card-tag">View Details</span></div></div>
-          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Chef Uniform.png" alt="Chef Uniform" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Chef Uniform</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reception Uniforms.png" alt="Front Desk Uniforms" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Front Desk Uniforms</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Factory Aprons.png" alt="Aprons &amp; Caps" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Aprons &amp; Caps</div></div></div>
+        </div>
+      </div>
 
-        <!-- Security -->
-        <div class="wwo-pane" data-industry="security">
-          <div class="wwo-banner">
-            <div class="wwo-banner-text">
-              <h3><span>Security</span> Guard Uniforms</h3>
-              <p>Uniforms and equipment for security and safety professionals built for authority.</p>
-            </div>
-            <a href="#contact" class="btn-orange">Get a Quote</a>
+      <!-- Security -->
+      <div class="wwo-pane" data-industry="security">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>Security</span> Guard Uniforms</h3>
+            <p>Uniforms and equipment for security and safety professionals built for authority.</p>
           </div>
-          <div class="wwo-products">
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Security Uniform</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Guard Jackets</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Patrol Caps &amp; Belts</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Epaulettes &amp; Badges</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Security Boots</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Baton &amp; Torch Holders</div><span class="wwo-card-tag">View Details</span></div></div>
-          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Industrial Coverall.png" alt="Security Uniform" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Security Uniform</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reflective Jackets.png" alt="Guard Jackets" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Guard Jackets</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Hard Hats & Safety Gear.png" alt="Safety Equipment" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Equipment</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Safety Shoes.png" alt="Security Boots" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Security Boots</div></div></div>
+        </div>
+      </div>
 
-        <!-- Housekeeping -->
-        <div class="wwo-pane" data-industry="housekeeping">
-          <div class="wwo-banner">
-            <div class="wwo-banner-text">
-              <h3><span>Housekeeping</span> Uniforms &amp; Materials</h3>
-              <p>Durable uniforms and cleaning materials for housekeeping staff.</p>
-            </div>
-            <a href="#contact" class="btn-orange">Get a Quote</a>
+      <!-- Housekeeping -->
+      <div class="wwo-pane" data-industry="housekeeping">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>Housekeeping</span> Uniforms &amp; Materials</h3>
+            <p>Durable uniforms and cleaning materials for housekeeping staff.</p>
           </div>
-          <div class="wwo-products">
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Housekeeping Uniform</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Cleaning Aprons</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Mop &amp; Cleaning Kits</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Hand Gloves</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Shoe Covers</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Head Caps</div><span class="wwo-card-tag">View Details</span></div></div>
-          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Medical Scrubs.png" alt="Housekeeping Uniform" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Housekeeping Uniform</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Factory Aprons.png" alt="Cleaning Aprons" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Cleaning Aprons</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Packing Materials.png" alt="Cleaning Kits" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Mop &amp; Cleaning Kits</div></div></div>
+        </div>
+      </div>
 
-        <!-- Embroidery & Printing -->
-        <div class="wwo-pane" data-industry="embroidery">
-          <div class="wwo-banner">
-            <div class="wwo-banner-text">
-              <h3><span>Embroidery</span> &amp; Printing</h3>
-              <p>Add your brand identity with precision embroidery and printing on any garment.</p>
-            </div>
-            <a href="#contact" class="btn-orange">Get a Quote</a>
+      <!-- Packing & Safety -->
+      <div class="wwo-pane" data-industry="packing">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>Packing</span> &amp; Safety Material Supply</h3>
+            <p>Complete range of industrial packing materials and safety equipment for your workplace.</p>
           </div>
-          <div class="wwo-products">
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Logo Embroidery</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Screen Printing</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Heat Transfer Printing</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Name &amp; Number Printing</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Woven Labels</div><span class="wwo-card-tag">View Details</span></div></div>
-            <div class="wwo-card"><div class="wwo-card-img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Patch Badges</div><span class="wwo-card-tag">View Details</span></div></div>
-          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Packing Materials.png" alt="Packing Materials" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Packing Materials</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Hard Hats & Safety Gear.png" alt="Hard Hats &amp; Safety Gear" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Hard Hats &amp; Safety Gear</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Safety Shoes.png" alt="Safety Shoes" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Shoes</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reflective Jackets.png" alt="Reflective Jackets" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Reflective Jackets</div></div></div>
+        </div>
+      </div>
+
+      <!-- Embroidery & Printing -->
+      <div class="wwo-pane" data-industry="embroidery">
+        <div class="wwo-banner">
+          <div class="wwo-banner-text">
+            <h3><span>Embroidery</span> &amp; Printing</h3>
+            <p>Add your brand identity with precision embroidery and printing on any garment.</p>
+          </div>
+          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
+        </div>
+        <div class="wwo-products">
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Corporate Shirts.png" alt="Logo Embroidery" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Logo Embroidery</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/TShirts.png" alt="Screen Printing" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Screen Printing</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Blazers.png" alt="Heat Transfer Printing" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Heat Transfer Printing</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Corporate Ties & Accessories.png" alt="Woven Labels" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Woven Labels &amp; Patch Badges</div></div></div>
+        </div>
+      </div>
 
     </div><!-- /wwo-panel -->
 
@@ -949,31 +934,45 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
       <div class="steps-flow">
         <div class="step-item">
           <div class="step-circle">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           </div>
-          <div class="step-title">Share Requirement</div>
-          <div class="step-desc">Tell us your uniform requirements in detail.</div>
+          <div class="step-title">Requirement</div>
+          <div class="step-desc">Share your uniform needs with us.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="step-title">Prepare Quote</div>
+          <div class="step-desc">We prepare a detailed quotation for you.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="step-title">Finalize Order</div>
+          <div class="step-desc">Confirm quantities and specifications.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">
             <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
           </div>
           <div class="step-title">Size Measurement</div>
-          <div class="step-desc">Follow our guide for perfect fit.</div>
+          <div class="step-desc">Follow our guide for a perfect fit.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
           </div>
-          <div class="step-title">Custom Production</div>
-          <div class="step-desc">We create your uniforms with care.</div>
+          <div class="step-title">Production</div>
+          <div class="step-desc">We manufacture your uniforms with care.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">
             <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
-          <div class="step-title">Delivery &amp; Support</div>
-          <div class="step-desc">Timely delivery and after-sales support.</div>
+          <div class="step-title">Delivery &amp; Shipment</div>
+          <div class="step-desc">On-time delivery to your doorstep.</div>
         </div>
       </div>
     </div>
@@ -1087,37 +1086,6 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
   </div>
 </section>
 
-<!-- GST INFO -->
-<section id="gst">
-  <div class="sec-inner">
-    <div class="sec-head rev">
-      <h2>Verified Business</h2>
-      <div class="uo"></div>
-      <p>Greenway Enterprises is fully GST registered. All transactions are compliant with proper tax invoices issued for every order.</p>
-    </div>
-    <div class="gst-layout">
-      <div class="gst-content revL">
-        <p>All transactions are fully GST-compliant. We provide proper tax invoices with every order, making billing and input tax credit simple and hassle-free for your business.</p>
-        <ul class="gst-points">
-          <li>GST Compliant Invoices Provided</li>
-          <li>Input Tax Credit Eligible</li>
-          <li>Transparent Billing — No Hidden Charges</li>
-          <li>Valid GST Registration</li>
-        </ul>
-      </div>
-      <div class="gst-panel revR">
-        <div class="gst-num-box">
-          <small>GSTIN Registration Number</small>
-          <div class="gnum">29BOUPM4948G1Z4</div>
-        </div>
-        <div class="gst-verified">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Verified GST Registered Business
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1139,6 +1107,10 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
       <div class="c-card">
         <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
         <div class="c-body"><label>Email</label><span><a href="mailto:greenwaytoenter@gmail.com" style="color:inherit">greenwaytoenter@gmail.com</a></span></div>
+      </div>
+      <div class="c-card">
+        <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="c-body"><label>GSTIN</label><span style="font-family:monospace;letter-spacing:0.06em;font-weight:600">29BOUPM4948G1Z4</span></div>
       </div>
       <div class="c-card">
         <div class="c-icon" style="background:#25D366"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;stroke:none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>

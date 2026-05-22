@@ -284,7 +284,7 @@ section{padding:5rem 8%}
 /* product grid */
 .wwo-products{
   padding:1.6rem 1.8rem;background:var(--offwhite);
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;
 }
 .wwo-card{
   background:var(--white);border:1px solid var(--border);
@@ -292,15 +292,25 @@ section{padding:5rem 8%}
   transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr);
   cursor:default;
 }
-.wwo-card:hover{transform:translateY(-4px);box-shadow:var(--shmd);border-color:var(--orange)}
+.wwo-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,0.13);border-color:var(--orange)}
 .wwo-card-img{
-  height:200px;background:#f0f3f8;
+  height:260px;background:#ffffff;
   display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
+  overflow:hidden;position:relative;
 }
-.wwo-card-img img{width:100%;height:100%;object-fit:contain;display:block;padding:0.5rem}
-.wwo-card-body{padding:0.75rem 0.9rem 0.85rem;border-top:1px solid var(--border)}
-.wwo-card-name{font-size:0.82rem;font-weight:600;color:var(--navy);line-height:1.3;text-align:center}
+.wwo-card-img img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+}
+.wwo-card-img.placeholder{background:#f0f3f8}
+.wwo-card-img.placeholder svg{width:48px;height:48px;stroke:rgba(13,27,42,0.15);fill:none;stroke-width:1}
+.wwo-card-body{
+  padding:0.85rem 1rem 1rem;
+  border-top:1px solid var(--border);background:var(--white);
+}
+.wwo-card-name{
+  font-size:0.84rem;font-weight:600;color:var(--navy);
+  line-height:1.35;text-align:center;
+}
 
 .wwo-bottom{text-align:center;padding:2rem 0 0.5rem}
 
@@ -760,7 +770,7 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
     <!-- full-width dynamic panel -->
     <div class="wwo-panel rev" id="wwoPanel">
 
-      <!-- Corporate -->
+      <!-- Corporate — all 6 items have matching images -->
       <div class="wwo-pane active" data-industry="corporate">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
@@ -779,12 +789,12 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
         </div>
       </div>
 
-      <!-- Industrial -->
+      <!-- Industrial — all 6 items have matching images -->
       <div class="wwo-pane" data-industry="industrial">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
             <h3><span>Industrial</span> &amp; Factory Uniforms</h3>
-            <p>High quality industrial uniforms for factory environments.</p>
+            <p>High quality industrial uniforms and packing materials for factory environments.</p>
           </div>
           <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
@@ -793,11 +803,12 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reflective Jackets.png" alt="Reflective Jackets" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Reflective Jackets</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Safety Shoes.png" alt="Safety Shoes" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Shoes</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Factory Aprons.png" alt="Factory Aprons" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Factory Aprons</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Packing Materials.png" alt="Packing Materials" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Packing Materials</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Hard Hats & Safety Gear.png" alt="Hard Hats &amp; Safety Gear" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Hard Hats &amp; Safety Gear</div></div></div>
         </div>
       </div>
 
-      <!-- Hospital -->
+      <!-- Hospital — all 6 items have matching images -->
       <div class="wwo-pane" data-industry="hospital">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
@@ -816,7 +827,7 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
         </div>
       </div>
 
-      <!-- School -->
+      <!-- School — 5 items have matching images, 1 placeholder -->
       <div class="wwo-pane" data-industry="school">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
@@ -830,11 +841,12 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/School Shirts & Blouses.png" alt="School Shirts &amp; Blouses" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">School Shirts &amp; Blouses</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Trousers & Skirts.png" alt="Trousers &amp; Skirts" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Trousers &amp; Skirts</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Sports Uniforms.png" alt="Sports Uniforms" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Sports Uniforms</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">House &amp; Tie Sets</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/College Blazers.png" alt="College Blazers" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">College Blazers</div></div></div>
         </div>
       </div>
 
-      <!-- Hospitality -->
+      <!-- Hospitality — Chef Uniform has image; rest are placeholders -->
       <div class="wwo-pane" data-industry="hospitality">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
@@ -845,12 +857,15 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
         </div>
         <div class="wwo-products">
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Chef Uniform.png" alt="Chef Uniform" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Chef Uniform</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Waiter &amp; Steward Uniforms</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reception Uniforms.png" alt="Front Desk Uniforms" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Front Desk Uniforms</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Banquet Staff Uniforms</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Factory Aprons.png" alt="Aprons &amp; Caps" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Aprons &amp; Caps</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Spa &amp; Salon Uniforms</div></div></div>
         </div>
       </div>
 
-      <!-- Security -->
+      <!-- Security — no dedicated security images; use closest matches -->
       <div class="wwo-pane" data-industry="security">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
@@ -862,12 +877,14 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
         <div class="wwo-products">
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Industrial Coverall.png" alt="Security Uniform" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Security Uniform</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reflective Jackets.png" alt="Guard Jackets" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Guard Jackets</div></div></div>
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Hard Hats & Safety Gear.png" alt="Safety Equipment" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Equipment</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Patrol Caps &amp; Belts</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Epaulettes &amp; Badges</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Safety Shoes.png" alt="Security Boots" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Security Boots</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Hard Hats & Safety Gear.png" alt="Safety Equipment" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Equipment</div></div></div>
         </div>
       </div>
 
-      <!-- Housekeeping -->
+      <!-- Housekeeping — no dedicated images; placeholders for non-matches -->
       <div class="wwo-pane" data-industry="housekeeping">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
@@ -877,13 +894,16 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
           <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
         </div>
         <div class="wwo-products">
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Medical Scrubs.png" alt="Housekeeping Uniform" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Housekeeping Uniform</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Housekeeping Uniform</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Factory Aprons.png" alt="Cleaning Aprons" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Cleaning Aprons</div></div></div>
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Packing Materials.png" alt="Cleaning Kits" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Mop &amp; Cleaning Kits</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Mop &amp; Cleaning Kits</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Hand Gloves</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Shoe Covers</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Head Caps</div></div></div>
         </div>
       </div>
 
-      <!-- Packing & Safety -->
+      <!-- Packing & Safety — all 4 have matching images -->
       <div class="wwo-pane" data-industry="packing">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
@@ -897,10 +917,12 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Hard Hats & Safety Gear.png" alt="Hard Hats &amp; Safety Gear" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Hard Hats &amp; Safety Gear</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Safety Shoes.png" alt="Safety Shoes" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Shoes</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reflective Jackets.png" alt="Reflective Jackets" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Reflective Jackets</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Factory Aprons.png" alt="Factory Aprons" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Factory Aprons</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Stretch Film &amp; Tape</div></div></div>
         </div>
       </div>
 
-      <!-- Embroidery & Printing -->
+      <!-- Embroidery & Printing — no dedicated images; use closest matches -->
       <div class="wwo-pane" data-industry="embroidery">
         <div class="wwo-banner">
           <div class="wwo-banner-text">
@@ -913,7 +935,9 @@ footer{background:#06111c;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Corporate Shirts.png" alt="Logo Embroidery" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Logo Embroidery</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/TShirts.png" alt="Screen Printing" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Screen Printing</div></div></div>
           <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Blazers.png" alt="Heat Transfer Printing" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Heat Transfer Printing</div></div></div>
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Corporate Ties & Accessories.png" alt="Woven Labels" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Woven Labels &amp; Patch Badges</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Name &amp; Number Printing</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Woven Labels</div></div></div>
+          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Patch Badges</div></div></div>
         </div>
       </div>
 

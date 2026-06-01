@@ -314,6 +314,35 @@ section{padding:5rem 8%}
 
 .wwo-bottom{text-align:center;padding:2rem 0 0.5rem}
 
+/* ── PACKAGING SOLUTIONS ── */
+#packaging{background:var(--white)}
+.pkg-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;
+  margin-top:0;
+}
+.pkg-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr);
+}
+.pkg-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(26,77,46,0.13);border-color:var(--orange)}
+.pkg-card-img{
+  height:220px;background:#eef5f1;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.pkg-card-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.pkg-card-img.placeholder{background:#eef5f1}
+.pkg-card-img.placeholder svg{width:52px;height:52px;stroke:rgba(26,77,46,0.18);fill:none;stroke-width:1.2}
+.pkg-card-body{
+  padding:0.9rem 1rem 1rem;
+  border-top:1px solid var(--border);background:var(--white);
+}
+.pkg-card-name{
+  font-size:0.86rem;font-weight:600;color:var(--navy);
+  line-height:1.35;text-align:center;
+}
+
 /* ── HOW IT WORKS ── */
 #how{background:var(--navy);padding:5rem 8%}
 .how-section{max-width:1200px;margin:0 auto}
@@ -733,6 +762,7 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
   .fab-cta{right:1.2rem}
   .fab-wa{left:1.2rem}
   .wwo-products{grid-template-columns:repeat(2,1fr)}
+  .pkg-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:640px){
   section{padding:3.5rem 5%}
@@ -742,6 +772,7 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
   .footer-top{grid-template-columns:1fr}
   .stats-row{grid-template-columns:1fr 1fr}
   .wwo-products{grid-template-columns:repeat(2,1fr)}
+  .pkg-grid{grid-template-columns:repeat(2,1fr)}
   .wwo-banner{flex-direction:column;align-items:flex-start;gap:1rem}
   .wwo-products{padding:1rem}
 }
@@ -763,6 +794,7 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
   <ul class="nav-links" id="navLinks">
     <li><a href="#hero">Home</a></li>
     <li><a href="#what-we-offer">What We Offer</a></li>
+    <li><a href="#packaging">Packaging</a></li>
     <li><a href="#clients">Clients</a></li>
     <li><a href="#contact">Contact Us</a></li>
     <li><a href="https://wa.me/917899948980" target="_blank" class="nav-quote">WhatsApp Us</a></li>
@@ -790,10 +822,6 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
             Watch Video
           </a>
         </div>
-        <div class="hero-trust">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>GSTIN: <strong>29BOUPM4948G1Z4</strong></span>
-        </div>
       </div>
 
 
@@ -820,7 +848,6 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
       <button class="wwo-filter" data-industry="hospitality"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Hospitality</button>
       <button class="wwo-filter" data-industry="security"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security</button>
       <button class="wwo-filter" data-industry="housekeeping"><svg viewBox="0 0 24 24"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><path d="M3 9l2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>Housekeeping</button>
-      <button class="wwo-filter" data-industry="packing"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Packing &amp; Safety</button>
       <button class="wwo-filter" data-industry="embroidery"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>Embroidery &amp; Printing</button>
     </div>
 
@@ -960,24 +987,6 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
         </div>
       </div>
 
-      <!-- Packing & Safety — all 4 have matching images -->
-      <div class="wwo-pane" data-industry="packing">
-        <div class="wwo-banner">
-          <div class="wwo-banner-text">
-            <h3><span>Packing</span> &amp; Safety Material Supply</h3>
-            <p>Complete range of industrial packing materials and safety equipment for your workplace.</p>
-          </div>
-          <a href="https://wa.me/917899948980" target="_blank" class="btn-orange">WhatsApp Us</a>
-        </div>
-        <div class="wwo-products">
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Packing Materials.png" alt="Packing Materials" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Packing Materials</div></div></div>
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Hard Hats & Safety Gear.png" alt="Hard Hats &amp; Safety Gear" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Hard Hats &amp; Safety Gear</div></div></div>
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Safety Shoes.png" alt="Safety Shoes" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Safety Shoes</div></div></div>
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Reflective Jackets.png" alt="Reflective Jackets" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Reflective Jackets</div></div></div>
-          <div class="wwo-card"><div class="wwo-card-img"><img src="./mockups/Factory Aprons.png" alt="Factory Aprons" loading="lazy"></div><div class="wwo-card-body"><div class="wwo-card-name">Factory Aprons</div></div></div>
-          <div class="wwo-card"><div class="wwo-card-img placeholder"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="wwo-card-body"><div class="wwo-card-name">Stretch Film &amp; Tape</div></div></div>
-        </div>
-      </div>
 
       <!-- Embroidery & Printing — no dedicated images; use closest matches -->
       <div class="wwo-pane" data-industry="embroidery">
@@ -1002,6 +1011,62 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
 
     <div class="wwo-bottom rev">
       <a href="#contact" class="btn-orange">Request Full Catalogue</a>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGING SOLUTIONS -->
+<section id="packaging">
+  <div class="sec-inner">
+    <div class="sec-head rev">
+      <h2>Packaging Solutions</h2>
+      <div class="uo"></div>
+      <p>Custom paper-moulded and corrugated packaging for every industrial and commercial need.</p>
+    </div>
+    <div class="pkg-grid">
+
+      <div class="pkg-card rev d1">
+        <div class="pkg-card-img placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="pkg-card-body"><div class="pkg-card-name">Customized Paper Moulded Packaging Shape</div></div>
+      </div>
+
+      <div class="pkg-card rev d2">
+        <div class="pkg-card-img placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="pkg-card-body"><div class="pkg-card-name">Customized Paper Moulded Packaging for Util</div></div>
+      </div>
+
+      <div class="pkg-card rev d3">
+        <div class="pkg-card-img placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="pkg-card-body"><div class="pkg-card-name">Customized Paper Moulded Packaging for Tools</div></div>
+      </div>
+
+      <div class="pkg-card rev d1">
+        <div class="pkg-card-img placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="pkg-card-body"><div class="pkg-card-name">Corrugated Box Paper for Industrial Packing</div></div>
+      </div>
+
+      <div class="pkg-card rev d2">
+        <div class="pkg-card-img placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="pkg-card-body"><div class="pkg-card-name">Customized Paper Moulded Packaging for Dish</div></div>
+      </div>
+
+      <div class="pkg-card rev d3">
+        <div class="pkg-card-img placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="pkg-card-body"><div class="pkg-card-name">Customized Paper Moulded Packaging for Eggs</div></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1239,7 +1304,7 @@ footer{background:#0a2414;color:rgba(255,255,255,0.45);padding:3.5rem 8% 1.8rem}
       </div>
       <div class="c-card">
         <div class="c-icon" style="background:#25D366"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;stroke:none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-        <div class="c-body"><label>WhatsApp</label><span><a href="https://wa.me/917899948980" target="_blank" style="color:inherit">Chat on WhatsApp →</a></span></div>
+        <div class="c-body"><label>WhatsApp</label><span><a href="https://wa.me/917899948980" target="_blank" style="color:inherit">Chat on WhatsApp</a></span></div>
       </div>
     </div>
   </div>
